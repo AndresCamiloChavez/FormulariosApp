@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col">
     <form
-      (ngSubmit)="guardar(miFormulario)"
+      (ngSubmit)="guardar()"
       #miFormulario="ngForm"
       [autocomplete]="false"
       autocomplete="false"
@@ -22,10 +22,7 @@
             minlength="3"
           />
           <span
-            *ngIf="
-              miFormulario.controls['producto']?.invalid &&
-              miFormulario.controls['producto'].touched
-            "
+            *ngIf="nombreValido()"
             class="form-text text-danger"
             >Debe de ser de 3 letras</span
           >

@@ -16,7 +16,7 @@
             type="text"
             class="form-control"
             name="producto"
-            ngModel
+            [(ngModel)]="initForm.producto"
             placeholder="Nombre del producto"
             required
             minlength="3"
@@ -35,11 +35,16 @@
           <input
             type="number"
             name="precio"
-            ngModel
+            [(ngModel)]="initForm.precio"
             required
             class="form-control"
             placeholder="Precio del producto"
           />
+          <span
+          *ngIf="precioValido()"
+          class="form-text text-danger"
+          >El precio debe ser mayor o igual a 0</span
+        >
         </div>
       </div>
 
@@ -50,15 +55,18 @@
           <input
             type="number"
             name="existencias"
-            ngModel
+            [(ngModel)]="initForm.existencias"
+            customMin
+            [minimo]="0"
             class="form-control"
+            required
             placeholder="Existencia del producto"
           />
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <button type="submit" class="btn btn-primary float-end">
+          <button type="submit" [disabled]="!miFormulario.valid" class="btn btn-primary float-end">
             Guardar
           </button>
         </div>

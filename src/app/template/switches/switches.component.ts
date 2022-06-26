@@ -5,11 +5,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './switches.component.html',
   styleUrls: ['./switches.component.css']
 })
-export class SwitchesComponent implements OnInit {
+export class SwitchesComponent{
 
-  constructor() { }
+  persona = {
+    genero: 'F',
+    notificaciones: true
+  };
+  terminosCondiciones = false;
 
-  ngOnInit(): void {
-  }
+
 
 }

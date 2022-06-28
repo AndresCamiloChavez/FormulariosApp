@@ -1,17 +1,17 @@
-<h2>Template Switches</h2>
+<h2>Reactive Switches</h2>
 <hr />
 
-<form>
+<form [formGroup]="miFormulario" (ngSubmit)="guardar()">
   <div class="row mb-3">
     <div class="col">
       <label class="col-sm-3 col-form-label">Género</label>
       <div class="col-sm-9">
         <div class="form-check">
           <input
+          formControlName="genero"
             class="form-check-input"
             type="radio"
             value="M"
-            name="flexRadioDefault"
             id="radioMasculino"
           />
           <label class="form-check-label" for="radioMasculino">
@@ -20,10 +20,10 @@
         </div>
         <div class="form-check">
           <input
+          formControlName="genero"
             class="form-check-input"
             type="radio"
             value="F"
-            name="flexRadioDefault"
             id="radioFemenino"
           />
           <label class="form-check-label" for="radioFemenino"> Femenino </label>
@@ -40,6 +40,7 @@
           class="form-check-input"
           type="checkbox"
           role="switch"
+          formControlName="notificaciones"
           id="flexSwitchCheckDefault"
         />
         <label class="form-check-label" for="flexSwitchCheckDefault"
@@ -54,6 +55,7 @@
         <input
           class="form-check-input"
           type="checkbox"
+          formControlName="condiciones"
           id="flexCheckDefault"
         />
         <label class="form-check-label" for="flexCheckDefault">
@@ -65,14 +67,18 @@
 
   <div class="row mb-3">
     <div class="col">
-        <button class="btn btn-primary float-end">Guardar</button>
+        <button type="submit" class="btn btn-primary float-end">Guardar</button>
     </div>
   </div>
 </form>
-<!-- 
+
 <h3>Valor del formulario</h3>
 
 <pre>{{miFormulario.value | json}}</pre>
+<br>
+<h3>Valor de la persona</h3>
+
+<pre>{{persona | json}}</pre>
 <br>
 
 <h3>Formulario válido</h3>
@@ -82,4 +88,4 @@
 <pre>{{miFormulario.controls['terminos']?.errors |json}}</pre>
 
 <br>
-<pre>Condiciones: {{miFormulario.valid}}</pre> -->
+<pre>Condiciones: {{miFormulario.valid}}</pre>

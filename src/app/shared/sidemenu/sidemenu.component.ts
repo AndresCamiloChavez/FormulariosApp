@@ -35,6 +35,17 @@ export class SidemenuComponent implements OnInit {
       ruta:'reactive/switches'
     }
   ];
+
+  validacionesMenu: MenuItem[] = [
+    {
+      texto: 'Validacione a login',
+      ruta: 'auth/login'
+    },
+    {
+      texto: 'Validacione a registro',
+      ruta: 'auth/registro'
+    }
+  ]
   constructor() { }
 
   ngOnInit(): void {

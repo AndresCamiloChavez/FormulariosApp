@@ -29,7 +29,7 @@ export class SwitchesComponent implements OnInit {
     });
 
     this.miFormulario.valueChanges.subscribe( ({data, ...rest})  =>{
-
+          
       this.persona  = rest;
       console.log('Valor de la suscripción ', data);
       this.persona.genero = data.genero; 

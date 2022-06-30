@@ -22,7 +22,10 @@ export class RegistroComponent implements OnInit {
     ],
     email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
     username: ['', [Validators.required, this.validatorService.noPuedeSerStrider]],
-    // password: ['', [Validators.required]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    password2: ['', [Validators.required]],
+  },{
+    validators: [ this.validatorService.camposIguales('password', 'password2')]
   });
 
   ngOnInit(): void {

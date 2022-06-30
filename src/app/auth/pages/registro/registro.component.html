@@ -28,9 +28,13 @@
             class="form-control"
             placeholder="Correo electrónico "
           />
-          <span *ngIf="campoValido('email')" class="form-text text-danger"
+          <span *ngIf="emailRequired()" class="form-text text-danger"
             >El correo es obligatorio</span
           >
+          <span *ngIf="emailTomato()" class="form-text text-danger"
+            >¡El correo ya existe!</span
+          >
+     
         </div>
       </div>
       <!-- Username -->
@@ -79,7 +83,7 @@
 
       <div class="row">
         <div class="col">
-          <button type="submit" class="btn btn-primary float-end">Crear</button>
+          <button [disabled]="miFormulario.pending" type="submit" class="btn btn-primary float-end">Crear</button>
         </div>
       </div>
     </form>
@@ -89,6 +93,9 @@
 <h2>Valores formularios</h2>
 <h3>valido</h3>
 <pre>{{ miFormulario.valid | json }}</pre>
+<br />
+<h3>status</h3>
+<pre>{{ miFormulario.status | json }}</pre>
 <br />
 <h3>Forms errors</h3>
 <pre>{{ miFormulario.errors | json }}</pre>

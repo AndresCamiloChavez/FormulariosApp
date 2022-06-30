@@ -78,4 +78,26 @@ export class RegistroComponent implements OnInit {
     return (
       this.miFormulario.get('email')?.hasError('emailExiste') && this.miFormulario.get('email')?.touched );
   }
+
+
+
+  get emailErrorMsg(): string{
+
+    const control = this.miFormulario.get('email');
+    if(control?.getError('required')){
+      return 'El campo es obligatorio';
+    }else if(control?.getError('pattern')){
+      return  'El formato del correo no es válido';
+
+    }else if(control?.getError('emailExiste')){
+      return  'El correo electrónico ya existe!';
+
+    }
+    return  '';
+  }
+
+
+
+
+
 }

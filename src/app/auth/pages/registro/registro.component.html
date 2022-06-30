@@ -28,13 +28,17 @@
             class="form-control"
             placeholder="Correo electrónico "
           />
-          <span *ngIf="emailRequired()" class="form-text text-danger"
+          <!-- <span *ngIf="emailRequired()" class="form-text text-danger"
             >El correo es obligatorio</span
           >
           <span *ngIf="emailTomato()" class="form-text text-danger"
             >¡El correo ya existe!</span
           >
-     
+          <span *ngIf="emailPattern()" class="form-text text-danger"
+            >El correo no es válido</span
+          > -->
+          <span *ngIf="campoValido('email')" class="form-text text-danger"
+          >{{emailErrorMsg}}</span>
         </div>
       </div>
       <!-- Username -->
